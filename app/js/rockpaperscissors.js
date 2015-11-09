@@ -4,7 +4,7 @@
 'use strict';
 
 function getInput() {
-    console.log("Please choose either 'rock', 'paper', or 'scissors'.")
+    console.log("Please choose either 'rock', 'paper', or 'scissors'.");
     return prompt();
 }
 function randomPlay() {
@@ -32,7 +32,7 @@ function getComputerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
-    return move || getInput();
+    return move || randomPlay();
 }
 
 function getWinner(playerMove,computerMove) {
@@ -73,11 +73,30 @@ function getWinner(playerMove,computerMove) {
 }
 
 function playToFive() {
-    console.log("Let's play Rock, Paper, Scissors");
-    var playerWins = 0;
-    var computerWins = 0;
-    // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
-    /* YOUR CODE HERE */
-    return [playerWins, computerWins];
-}
+  console.log('Let\'s play Rock Paper Scissors');
+  var playerWins = 0;
+  var computerWins = 0;
+  // This function should continue to play Rock Paper Scissors until either the
+  // player or the computer has won five times.
+  // After each 'round', display some text in the console indicating who played
+  // what, who won, and what the current scoreboard looks like.
+  // For example,
+  //  console.log('Player chose ' + playerMove + ' while Computer chose ' + computerMove);
+  //  console.log('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
+ 
+  for (var count=0;count<5;count++) {
+  var player =  getPlayerMove();
+  var pc = getComputerMove();
+  var outcome= getWinner(player,pc);
+    if (outcome == "computer"){
+        computerWins++;
+    } else if (outcome == "player") {
+        playerWins++;
+    }
+    console.log('Player chose ' + player + ' while Computer chose ' + pc);
+    console.log('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
+  }
+  return [playerWins, computerWins];
+  }
+
 
