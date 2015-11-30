@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////
 /*   Provided Code - Please Don't Edit   */
 ////////////////////////////////////////////////
-'use strict';
+//'use strict';
 
 function getInput() {
     console.log("Please choose either 'rock', 'paper', or 'scissors'.");
@@ -42,27 +42,27 @@ function getWinner(playerMove,computerMove) {
     // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
     switch (playerMove) {
         case "rock":
-        if (computerMove=="rock"){
+        if (computerMove==="rock"){
             winner = "tie";
-        } else if(computerMove=="paper"){
+        } else if(computerMove==="paper"){
             winner = "computer";
         } else{
             winner = "player";
         }
         break;
       case "scissors":
-        if (computerMove=="rock"){
+        if (computerMove==="rock"){
             winner = "computer";
-        } else if(computerMove=="paper"){
+        } else if(computerMove==="paper"){
             winner = "player";
         } else{
             winner = "tie";
         }
         break;
       case "paper":
-        if (computerMove=="rock"){
+        if (computerMove==="rock"){
             winner = "player";
-        } else if(computerMove=="paper"){
+        } else if(computerMove==="paper"){
             winner = "tie";
         } else{
             winner = "computer";
@@ -84,13 +84,15 @@ function playToFive() {
   //  console.log('Player chose ' + playerMove + ' while Computer chose ' + computerMove);
   //  console.log('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
  
-  for (var count=0;count<5;count++) {
+  while (computerWins < 5 && playerWins < 5) {
   var player =  getPlayerMove();
   var pc = getComputerMove();
   var outcome= getWinner(player,pc);
     if (outcome == "computer"){
+        console.log("PC wins!");
         computerWins++;
     } else if (outcome == "player") {
+        console.log("Player wins!");
         playerWins++;
     }
     console.log('Player chose ' + player + ' while Computer chose ' + pc);
@@ -98,5 +100,3 @@ function playToFive() {
   }
   return [playerWins, computerWins];
   }
-
-
